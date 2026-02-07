@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Evolución de la deforestación (2000–2019)</title>
+  <title>Evolución temporal de la deforestación (2000–2019)</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,39 +12,69 @@
       padding: 30px;
       text-align: center;
     }
+
     h1 {
       margin-bottom: 10px;
     }
+
     p {
       max-width: 900px;
       margin: 10px auto 20px;
       font-size: 1.05em;
+      line-height: 1.4;
     }
-    img {
-      max-width: 95%;
-      border: 1px solid #aaa;
-      background: white;
+
+    .video-container {
+      max-width: 70%;          /* ← tamaño del vídeo */
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 15px;
+      border: 1px solid #bbb;
+      border-radius: 6px;
     }
+
+    video {
+      width: 100%;
+      height: auto;
+      outline: none;
+    }
+
+    .hint {
+      font-size: 0.95em;
+      color: #444;
+      margin-top: 10px;
+    }
+
     footer {
-      margin-top: 25px;
+      margin-top: 30px;
       font-size: 0.9em;
       color: #555;
     }
   </style>
 </head>
+
 <body>
 
 <h1>Evolución temporal de la deforestación (2000–2019)</h1>
 
 <p>
-Animación generada a partir de paneles anuales que muestran, para cada año,
-la imagen original, la máscara binaria y el overlay obtenidos mediante
-distintos métodos de segmentación (Otsu, Adaptativo, HSV y LAB).
+Esta visualización muestra la evolución anual de la deforestación en una región
+de la selva amazónica a partir de imágenes satelitales. Para cada año se presentan,
+de izquierda a derecha, los resultados obtenidos mediante distintos métodos de
+segmentación: Otsu (umbral global), umbral adaptativo, HSV y LAB.
 </p>
-<video controls width="95%">
-  <source src="deforestation_panels_2000_2019.mp4" type="video/mp4">
-  Tu navegador no soporta vídeo HTML5.
-</video>
+
+<div class="video-container">
+  <video controls preload="metadata">
+    <source src="deforestation_panels_2000_2019.mp4" type="video/mp4">
+    Tu navegador no soporta vídeo HTML5.
+  </video>
+</div>
+
+<p class="hint">
+Utilice los controles de reproducción para pausar el vídeo y analizar
+detalladamente la evolución año a año.
+</p>
 
 <footer>
 Trabajo académico – Visión Artificial<br>
