@@ -24,13 +24,12 @@
       line-height: 1.4;
     }
 
-    /* Contenedor con límite real de ancho, sin limitar altura */
     .video-container {
       width: 100%;
       max-width: 900px;
       margin: 0 auto;
       background: #ffffff;
-      padding: 15px 15px 22px; /* + padding abajo para que controles no “pisen” */
+      padding: 15px;
       border: 1px solid #bbb;
       border-radius: 6px;
       box-sizing: border-box;
@@ -39,17 +38,31 @@
     video {
       display: block;
       width: 100%;
-      height: auto;           /* clave: altura automática */
-      max-width: 100%;
-      object-fit: contain;    /* clave: nunca recorta */
-      background: #000;       /* relleno si sobran bandas */
+      height: auto;
+      object-fit: contain;
+      background: #000;
       border-radius: 4px;
     }
 
-    .hint {
-      font-size: 0.95em;
-      color: #444;
-      margin-top: 10px;
+    /* CONTROLES EXTERNOS */
+    .controls {
+      margin-top: 12px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .controls button {
+      padding: 8px 18px;
+      font-size: 1em;
+      border: 1px solid #888;
+      border-radius: 4px;
+      background: #f0f0f0;
+      cursor: pointer;
+    }
+
+    .controls button:hover {
+      background: #e0e0e0;
     }
 
     footer {
@@ -65,28 +78,44 @@
 <h1>Evolución temporal de la deforestación (2000–2019)</h1>
 
 <p>
-Esta visualización interactiva muestra la evolución anual de la deforestación
-en una región de la selva amazónica a partir de imágenes satelitales.
-Para cada año se comparan los resultados obtenidos mediante distintos
-métodos de segmentación (Otsu, umbral adaptativo, HSV y LAB).
+Visualización interactiva de la evolución anual de la deforestación
+obtenida mediante distintos métodos de segmentación.
 </p>
 
 <div class="video-container">
-  <video controls preload="metadata">
+  <video id="defVideo" preload="metadata">
     <source src="deforestation_panels_2000_2019.mp4" type="video/mp4">
     Tu navegador no soporta vídeo HTML5.
   </video>
-</div>
 
-<p class="hint">
-Use los controles de reproducción para pausar y analizar con detalle
-la evolución año a año.
-</p>
+  <div class="controls">
+    <button onclick="playVideo()">▶ Play</button>
+    <button onclick="pauseVideo()">⏸ Pause</button>
+    <button onclick="restartVideo()">⟲ Reiniciar</button>
+  </div>
+</div>
 
 <footer>
 Trabajo académico – Visión Artificial<br>
 Material complementario
 </footer>
+
+<script>
+  const video = document.getElementById("defVideo");
+
+  function playVideo() {
+    video.play();
+  }
+
+  function pauseVideo() {
+    video.pause();
+  }
+
+  function restartVideo() {
+    video.pause();
+    video.currentTime = 0;
+  }
+</script>
 
 </body>
 </html>
