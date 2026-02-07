@@ -24,13 +24,13 @@
       line-height: 1.4;
     }
 
-    /* CONTENEDOR FUERTE: limita tamaño real */
+    /* Contenedor con límite real de ancho, sin limitar altura */
     .video-container {
       width: 100%;
-      max-width: 900px;     /* ← CLAVE ABSOLUTA */
+      max-width: 900px;
       margin: 0 auto;
       background: #ffffff;
-      padding: 15px;
+      padding: 15px 15px 22px; /* + padding abajo para que controles no “pisen” */
       border: 1px solid #bbb;
       border-radius: 6px;
       box-sizing: border-box;
@@ -39,8 +39,11 @@
     video {
       display: block;
       width: 100%;
+      height: auto;           /* clave: altura automática */
       max-width: 100%;
-      height: auto;
+      object-fit: contain;    /* clave: nunca recorta */
+      background: #000;       /* relleno si sobran bandas */
+      border-radius: 4px;
     }
 
     .hint {
@@ -62,8 +65,8 @@
 <h1>Evolución temporal de la deforestación (2000–2019)</h1>
 
 <p>
-Este GIF muestra la evolución anual de la deforestación
-en Jamanxim a partir de imágenes satelitales.
+Esta visualización interactiva muestra la evolución anual de la deforestación
+en una región de la selva amazónica a partir de imágenes satelitales.
 Para cada año se comparan los resultados obtenidos mediante distintos
 métodos de segmentación (Otsu, umbral adaptativo, HSV y LAB).
 </p>
