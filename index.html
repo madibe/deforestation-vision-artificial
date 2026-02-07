@@ -24,19 +24,23 @@
       line-height: 1.4;
     }
 
+    /* CONTENEDOR FUERTE: limita tamaño real */
     .video-container {
-      max-width: 30%;          /* ← tamaño del vídeo */
+      width: 100%;
+      max-width: 900px;     /* ← CLAVE ABSOLUTA */
       margin: 0 auto;
       background: #ffffff;
       padding: 15px;
       border: 1px solid #bbb;
       border-radius: 6px;
+      box-sizing: border-box;
     }
 
     video {
+      display: block;
       width: 100%;
+      max-width: 100%;
       height: auto;
-      outline: none;
     }
 
     .hint {
@@ -58,10 +62,10 @@
 <h1>Evolución temporal de la deforestación (2000–2019)</h1>
 
 <p>
-Esta visualización muestra la evolución anual de la deforestación en una región
-de la selva amazónica a partir de imágenes satelitales. Para cada año se presentan,
-de izquierda a derecha, los resultados obtenidos mediante distintos métodos de
-segmentación: Otsu (umbral global), umbral adaptativo, HSV y LAB.
+Esta visualización interactiva muestra la evolución anual de la deforestación
+en una región de la selva amazónica a partir de imágenes satelitales.
+Para cada año se comparan los resultados obtenidos mediante distintos
+métodos de segmentación (Otsu, umbral adaptativo, HSV y LAB).
 </p>
 
 <div class="video-container">
@@ -72,8 +76,8 @@ segmentación: Otsu (umbral global), umbral adaptativo, HSV y LAB.
 </div>
 
 <p class="hint">
-Utilice los controles de reproducción para pausar el vídeo y analizar
-detalladamente la evolución año a año.
+Use los controles de reproducción para pausar y analizar con detalle
+la evolución año a año.
 </p>
 
 <footer>
